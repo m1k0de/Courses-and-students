@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 class Student
 {
     public string Name;
@@ -30,4 +32,11 @@ class Student
         }
     }
     
+    public void Schedule()
+    {
+        foreach (Course course in Courses)
+        {
+            Console.WriteLine(course.Name);
+        }
+    }
 }
