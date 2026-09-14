@@ -22,4 +22,9 @@ class Course
         Console.WriteLine("Kursen är full");
         }
     }
+
+    public void Remove(Student student)
+    {
+        student.Leave(this);
+    }
 }
