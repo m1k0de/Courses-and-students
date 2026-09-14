@@ -27,4 +27,12 @@ class Course
     {
         student.Leave(this);
     }
+
+    public void RollCall()
+    {
+        foreach (Student student in Students)
+        {
+            Console.WriteLine(student.Name);
+        }
+    }
 }
