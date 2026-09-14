@@ -9,4 +9,17 @@ class Course
         MaxSeats = maxSeats;
         Students = new List<Student>();
     }
+
+    public void Enroll(Student student)
+    {
+        if (Students.Count < MaxSeats)
+        {
+        student.Join(this);
+        Console.WriteLine("Välkommen till kursen!");
+        }
+        else
+        {
+        Console.WriteLine("Kursen är full");
+        }
+    }
 }
