@@ -58,31 +58,34 @@ void TestaBorttagning()
 }
 TestaBorttagning();
 
+Console.WriteLine("\n");
 
-/*
-// skapar en ny kurs "matematik" med max 2 studenter
-Course matematik = new("Matematik", 2);
+void TestaBadaHallen()
+{
+    Console.WriteLine("Testar att båda hållen hänger ihop");
 
-// lägger till Kim och Linnea i matematik
-Student kim = new("Kim");
-kim.Join(matematik);
+    Course matematik = new("Matematik", 3);
+    Course svenska = new("Svenska", 3);
+    Student kim = new("Kim");
+    Student linnea = new("Linnea");
 
-Student linnea = new("Linnea");
-matematik.Enroll(linnea);
+    kim.Join(matematik);       // via studenten
+    svenska.Enroll(kim);       // via kursen – välkomstmeddelande
+    matematik.Enroll(linnea);  // välkomstmeddelande
 
-// försöker lägga till Sid men kursen är full
-Student sid = new("Sid");
-matematik.Enroll(sid);
+    Console.WriteLine(matematik);  // Matematik (2 / 3 platser)
+    matematik.RollCall();          // Kim, Linnea
+    Console.WriteLine(svenska);    // Svenska (1 / 3 platser)
+    svenska.RollCall();            // Kim
 
-// RollCall och Schedule testade
-matematik.RollCall();
-kim.Schedule();
+    Console.WriteLine("Kims schema:");
+    kim.Schedule();                // Matematik, Svenska
+    Console.WriteLine("Linneas schema:");
+    linnea.Schedule();             // Matematik
 
-// testar ingen krasch och Leave, Remove
-matematik.Remove(linnea);
-linnea.Leave(matematik);
-
-// uppdaterad lista av studenter i matematik
-matematik.RollCall();
-
-*/
+    kim.Leave(svenska);            // Kim lämnar via studenten
+    Console.WriteLine(svenska);    // Svenska (0 / 3 platser) – borta även ur kursen
+    Console.WriteLine("Kims schema efter Leave:");
+    kim.Schedule();                // bara Matematik
+}
+TestaBadaHallen();
