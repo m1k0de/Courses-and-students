@@ -7,16 +7,21 @@ class Student
         Name = name;
         Courses = new List<Course>();
     }
-    public void Join(Course course)
+    public bool Join(Course course)
     {
-        if (!Courses.Contains(course))
+        if (Courses.Contains(course) || course.Students.Contains(this))
         {
-            Courses.Add(course);
+            Console.WriteLine($"{Name} är redan anmäld till {course.Name}");
+            return false;
         }
-        if (!course.Students.Contains(this))
+        if (course.Students.Count >= course.MaxSeats)
         {
-            course.Students.Add(this);
+            Console.WriteLine($"{course.Name} är full, {Name} kom inte med");
+            return false;
         }
+        Courses.Add(course);
+        course.Students.Add(this);
+        return true;
     }
     public void Leave(Course course)
     {
