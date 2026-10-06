@@ -12,14 +12,9 @@ class Course
 
     public void Enroll(Student student)
     {
-        if (Students.Count < MaxSeats)
+        if (student.Join(this))
         {
-        student.Join(this);
         Console.WriteLine("Välkommen till kursen!");
-        }
-        else
-        {
-        Console.WriteLine("Kursen är full");
         }
     }
 
