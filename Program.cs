@@ -14,6 +14,12 @@ void TestaKapacitet()
     matematik.Enroll(sid);  // Sid försöker läggas till men är inte med på rollcall
     sid.Join(matematik);  // Sid försöker via Join istället men stoppas
     matematik.RollCall();
+
+    Console.WriteLine(matematik);  // matematik (2 / 2 platser)
+    Console.WriteLine("Kims schema:");
+    kim.Schedule();  // matematik
+    Console.WriteLine("Sids schema:");
+    sid.Schedule();   // tomt - Sid kom aldrig med
 }
 TestaKapacitet();
 
