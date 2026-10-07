@@ -27,8 +27,11 @@ void TestaDubblettskydd()
 
     kim.Join(matematik);
     kim.Join(matematik);
+    matematik.Enroll(kim);  // dubbelanmälan via Enroll - inget välkomstmeddelande
 
     matematik.RollCall();
+    Console.WriteLine("Kims schema:");
+    kim.Schedule();  // matematik ska bara stå en gång
 }
 TestaDubblettskydd();
 
