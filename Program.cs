@@ -12,6 +12,7 @@ void TestaKapacitet()
     kim.Join(matematik); // Kim läggs till i matematik
     matematik.Enroll(linnea); // Linnea läggs till i matematik
     matematik.Enroll(sid);  // Sid försöker läggas till men är inte med på rollcall
+    sid.Join(matematik);  // Sid försöker via Join istället men stoppas
     matematik.RollCall();
 }
 TestaKapacitet();
