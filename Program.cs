@@ -54,7 +54,8 @@ void TestaBorttagning()
     sid.Leave(matematik); // samma här - ingen krasch
 
     matematik.RollCall(); // ska bara visa Kim
-
+    Console.WriteLine("Linneas schema:");
+    linnea.Schedule();  // ska vara tomt, Linnea togs bort
 }
 TestaBorttagning();
 
